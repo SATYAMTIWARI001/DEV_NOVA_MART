@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Buyhatke Clone - Hackathon</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <h1>Buyhatke Clone</h1>
+        <p class="subtitle">Compare prices across marketplaces — simple hackathon demo</p>
+        <form id="searchForm" class="search">
+          <input id="q" placeholder="Search products (e.g. iPhone, Laptop)" />
+          <button type="submit">Search</button>
+        </form>
+
+        <!-- Controls: sort, site filters, compare, export -->
+        <div class="controls">
+          <div class="control-left">
+            <label for="sort">Sort:</label>
+            <select id="sort">
+              <option value="relevance">Relevance</option>
+              <option value="price-asc">Price: Low → High</option>
+              <option value="price-desc">Price: High → Low</option>
+            </select>
+          </div>
+
+          <div class="control-center">
+            <label class="site-filter"><input type="checkbox" value="Amazon" checked /> Amazon</label>
+            <label class="site-filter"><input type="checkbox" value="Flipkart" checked /> Flipkart</label>
+          </div>
+
+          <div class="control-right">
+            <button id="compareBtn" class="btn" disabled>Compare (0)</button>
+            <button id="exportBtn" class="btn" disabled>Export CSV</button>
+          </div>
+        </div>
+      </header>
+
+      <section id="resultsSection" class="container">
+        <p id="hint" class="hint">Try searching for: <strong>iPhone</strong>, <strong>Samsung</strong>, <strong>Headphones</strong>, <strong>Laptop</strong>, <strong>Watch</strong></p>
+        <div id="grid" class="grid"></div>
+      </section>
+
+      <footer class="footer">Built for hackathon — no scraping, mock data or API only</footer>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+  </html>

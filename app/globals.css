@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --background: 210 16% 97%;       /* #F8FAFC - light slate */
+    --foreground: 217 20% 27%;       /* #1E293B - dark slate */
+    --card: 0 0% 100%;               /* #FFFFFF - white */
+    --card-foreground: 217 20% 27%;  /* #1E293B - match foreground */
+    --primary: 217 89% 58%;          /* #2563EB - blue */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --accent: 156 68% 45%;           /* #10B981 - emerald */
+    --accent-foreground: 0 0% 100%;  /* #FFFFFF */
+    --muted: 216 15% 52%;            /* #64748B - slate */
+    --muted-foreground: 217 20% 27%; /* #1E293B */
+    --border: 210 16% 82%;           /* Light border */
+    --input: 210 16% 82%;            /* Light input bg */
+    --ring: 217 89% 58%;             /* #2563EB - focus ring */
+    --radius: 0.75rem;
+    --destructive: 0 84% 60%;        /* Warning/error red */
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Secondary/Platform Colors */
+    --amazon: 36 100% 50%;           /* Amazon orange */
+    --amazon-bg: 36 100% 96%;        /* Light orange bg */
+    --flipkart: 214 100% 50%;        /* Flipkart blue */
+    --flipkart-bg: 214 100% 96%;     /* Light blue bg */
+    --meesho: 330 90% 55%;           /* Meesho pink */
+    --meesho-bg: 330 90% 96%;        /* Light pink bg */
+    
+    /* Status Colors */
+    --success: 142 76% 36%;          /* Green */
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;           /* Orange */
+    --warning-foreground: 0 0% 100%;
+    --info: 199 89% 48%;             /* Sky blue */
+    --info-foreground: 0 0% 100%;
+    
+    /* Shadows - subtle, clean */
+    --shadow-sm: 0 1px 2px 0 hsl(217 20% 27% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(217 20% 27% / 0.1), 0 2px 4px -2px hsl(217 20% 27% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(217 20% 27% / 0.1), 0 4px 6px -4px hsl(217 20% 27% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(217 20% 27% / 0.1), 0 8px 10px -6px hsl(217 20% 27% / 0.1);
+  }
+
+  .dark {
+    /* Dark Mode - clean, not pure black */
+    --background: 210 16% 15%;       /* #1a242d - dark slate */
+    --foreground: 210 16% 97%;       /* #f0f6fc - light slate */
+    --card: 217 20% 22%;             /* #2d3b48 - slightly lighter */
+    --card-foreground: 210 16% 97%;
+    --primary: 217 89% 65%;          /* Lighter blue for dark mode */
+    --primary-foreground: 217 20% 27%;
+    --accent: 156 68% 55%;           /* Lighter emerald for dark mode */
+    --accent-foreground: 217 20% 27%;
+    --muted: 210 16% 45%;            /* Medium grey */
+    --muted-foreground: 210 16% 90%;
+    --border: 210 16% 25%;
+    --input: 210 16% 25%;
+    --ring: 217 89% 65%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --amazon-bg: 36 100% 8%;
+    --flipkart-bg: 214 100% 8%;
+    --meesho-bg: 330 90% 8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(0 0% 100% / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(0 0% 100% / 0.2);
+  }
+  
+  .glass-dark {
+    background: hsl(217 20% 22% / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(210 16% 25% / 0.2);
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes price-drop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
+
+.animate-price-drop {
+  animation: price-drop 0.5s ease-in-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
